@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Enhanced HTML5 Content & Form — enhanced-form.html</title>
+  <!--
+    This file demonstrates:
+      - semantic structure (header, main, section, footer)
+      - lists (ul, ol, dl)
+      - accessible tables (caption, thead, scope)
+      - media (img, audio, video)
+      - a complete HTML5 form using native validation attributes only
+    No CSS is used (per your request).
+  -->
+</head>
+<body>
+  <!-- Header / page title -->
+  <header>
+    <h1>Assignment: Enhancing HTML5 Content & Mastering Forms</h1>
+    <p>
+      This page demonstrates lists, tables, media, and a fully-featured HTML5 form.
+      All validation uses native HTML5 attributes (required, type, minlength, pattern, etc.).
+    </p>
+  </header>
+
+  <main>
+    <!-- Section: Lists -->
+    <section id="lists">
+      <h2>Useful Lists</h2>
+
+      <!-- Unordered list for features -->
+      <h3>Features (bulleted)</h3>
+      <ul>
+        <li>Semantic HTML elements for clarity and accessibility.</li>
+        <li>Native HTML5 form validation (no JavaScript).</li>
+        <li>Media embedding and accessible tables.</li>
+      </ul>
+
+      <!-- Ordered list for steps -->
+      <h3>Steps to test this form (numbered)</h3>
+      <ol>
+        <li>Open <code>enhanced-form.html</code> in your browser.</li>
+        <li>Try submitting the form with missing/invalid fields to see validation.</li>
+        <li>Fix values and submit again to confirm successful validation (browser will allow submit when valid).</li>
+      </ol>
+
+      <!-- Definition list for short terms -->
+      <h3>Quick Terms</h3>
+      <dl>
+        <dt>required</dt>
+        <dd>Forces the user to fill the field before submission.</dd>
+        <dt>pattern</dt>
+        <dd>Regular expression used by the browser to validate input format.</dd>
+      </dl>
+    </section>
+
+    <!-- Section: Table -->
+    <section id="table">
+      <h2>Price Table (example)</h2>
+      <!-- accessible table with caption and scope -->
+      <table border="1">
+        <caption>Example product price list</caption>
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Size</th>
+            <th scope="col">Price (KES)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Men's Shirt</td>
+            <td>Medium</td>
+            <td>1,200</td>
+          </tr>
+          <tr>
+            <td>Men's Shoes</td>
+            <td>Size 42</td>
+            <td>2,500</td>
+          </tr>
+          <tr>
+            <td>Jeans</td>
+            <td>32</td>
+            <td>1,800</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Note: table uses border attribute only for clarity (still HTML) -->
+    </section>
+
+    <!-- Section: Media -->
+    <section id="media">
+      <h2>Media Examples</h2>
+
+      <!-- Image with good alt text -->
+      <figure>
+        <img
+          src="https://via.placeholder.com/480x200.png?text=Sample+Image"
+          alt="Placeholder showing 'Sample Image' text"
+          width="480"
+          height="200">
+        <figcaption>Sample image (replace with your own file if needed).</figcaption>
+      </figure>
+
+      <!-- Audio with controls (sample external file) -->
+      <h3>Audio (controls)</h3>
+      <audio controls>
+        <!-- Replace the src with a local file if you prefer: src="audio/yourfile.mp3" -->
+        <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <!-- Video with controls (sample external file) -->
+      <h3>Video (controls)</h3>
+      <video controls width="480">
+        <!-- Replace the src with your own if needed: src="video/yourclip.mp4" -->
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+      <p><small>Tip: replace the above sources with local files if you submit offline.</small></p>
+    </section>
+
+    <!-- Section: The HTML5 Form -->
+    <section id="form">
+      <h2>Complete HTML5 Form</h2>
+      <!--
+        The form below demonstrates:
+          - label + for association
+          - fieldset + legend for grouping
+          - different input types (text, email, tel, number, url, password, color, range, file, date)
+          - attributes: required, minlength, maxlength, pattern, placeholder, autocomplete, readonly, title
+          - radio and checkbox groups
+        NOTE: action="#" so it won't actually post anywhere; remove or change action when you want real submission.
+      -->
+      <form action="#" method="post" enctype="multipart/form-data" novalidate>
+        <!--
+          NOTE: I put novalidate here only to illustrate the form skeleton.
+          For live browser validation remove novalidate attribute.
+          The assignment asks to use native HTML5 validation, so remove novalidate.
+        -->
+      </form>
+
+      <!-- REPEAT: correct behaviour - we want browser validation, so show the form again without novalidate -->
+      <form action="#" method="post" enctype="multipart/form-data">
+        <!-- Personal information -->
+        <fieldset>
+          <legend>Personal information</legend>
+
+          <!-- Full name (required, minlength) -->
+          <label for="fullName">Full name<span aria-hidden="true"> *</span></label><br>
+          <input
+            id="fullName"
+            name="fullName"
+            type="text"
+            placeholder="e.g. Eutycus Macharia"
+            required
+            minlength="3"
+            autocomplete="name"
+            aria-describedby="nameHelp">
+          <small id="nameHelp">Enter your real name (at least 3 characters).</small>
+          <br><br>
+
+          <!-- Username with pattern (alphanumeric + underscore, 3-15 chars) -->
+          <label for="username">Username</label><br>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="letters, numbers, underscore"
+            pattern="^[A-Za-z0-9_]{3,15}$"
+            title="Username must be 3-15 characters: letters, numbers or underscore"
+            required
+            autocomplete="username">
+          <br><br>
+
+          <!-- Email input -->
+          <label for="email">Email</label><br>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            required
+            autocomplete="email">
+          <br><br>
+
+          <!-- Phone number with pattern (optional + and 7-15 digits) -->
+          <label for="phone">Phone</label><br>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="+254700000000"
+            pattern="^\+?\d{7,15}$"
+            title="Enter 7 to 15 digits, optional leading +"
+            required
+            autocomplete="tel">
+          <br><br>
+
+          <!-- Age as number with min and max -->
+          <label for="age">Age</label><br>
+          <input
+            id="age"
+            name="age"
+            type="number"
+            min="18"
+            max="100"
+            placeholder="18"
+            required>
+          <small>Must be between 18 and 100.</small>
+          <br><br>
+
+          <!-- Address (autocomplete street-address) -->
+          <label for="address">Address</label><br>
+          <input
+            id="address"
+            name="address"
+            type="text"
+            placeholder="123 Koinange St"
+            autocomplete="street-address">
+          <br><br>
+
+          <!-- Country using datalist for suggestions -->
+          <label for="country">Country</label><br>
+          <input
+            id="country"
+            name="country"
+            type="text"
+            list="countryList"
+            placeholder="Start typing your country"
+            autocomplete="country">
+          <datalist id="countryList">
+            <option value="Kenya">
+            <option value="Uganda">
+            <option value="Tanzania">
+            <option value="Rwanda">
+            <option value="South Africa">
+          </datalist>
+        </fieldset>
+
+        <br>
+
+        <!-- Account details -->
+        <fieldset>
+          <legend>Account details</legend>
+
+          <!-- Password with minlength and pattern (at least one digit and letters) -->
+          <label for="password">Password</label><br>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Minimum 8 characters"
+            minlength="8"
+            pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}"
+            title="At least 8 characters and must include letters and numbers"
+            required
+            autocomplete="new-password">
+          <br><br>
+
+          <!-- Confirm password: same basic constraints (note: exact match requires JS/server-side) -->
+          <label for="confirmPassword">Confirm password</label><br>
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            placeholder="Re-enter password"
+            minlength="8"
+            pattern="(?=.*\d)(?=.*[A-Za-z]).{8,}"
+            title="Must match password (matching validated on server or with JavaScript)"
+            required
+            autocomplete="new-password">
+          <br><br>
+
+          <!-- Website (optional) -->
+          <label for="website">Website (optional)</label><br>
+          <input
+            id="website"
+            name="website"
+            type="url"
+            placeholder="https://example.com"
+            autocomplete="url">
+          <br><br>
+
+          <!-- File upload: accept only images -->
+          <label for="avatar">Profile picture (image files only)</label><br>
+          <input
+            id="avatar"
+            name="avatar"
+            type="file"
+            accept="image/*">
+          <br><br>
+
+          <!-- Readonly field for example referral code (demonstrates readonly) -->
+          <label for="referral">Referral code (readonly)</label><br>
+          <input
+            id="referral"
+            name="referral"
+            type="text"
+            value="EUTY-REF-2025"
+            readonly>
+          <small>This field is readonly and will be submitted with the form.</small>
+        </fieldset>
+
+        <br>
+
+        <!-- Preferences -->
+        <fieldset>
+          <legend>Preferences</legend>
+
+          <!-- Radio buttons for preferred contact method (required group) -->
+          <p>Preferred contact method:</p>
+          <input id="contactEmail" name="contactMethod" type="radio" value="email" required>
+          <label for="contactEmail">Email</label><br>
+          <input id="contactPhone" name="contactMethod" type="radio" value="phone">
+          <label for="contactPhone">Phone</label><br>
+          <input id="contactNone" name="contactMethod" type="radio" value="none">
+          <label for="contactNone">No contact</label>
+          <br><br>
+
+          <!-- Checkbox for subscribing newsletter -->
+          <input id="newsletter" name="newsletter" type="checkbox" value="yes">
+          <label for="newsletter">Subscribe to newsletter</label>
+          <br><br>
+
+          <!-- Color input (example) -->
+          <label for="favcolor">Favorite color</label><br>
+          <input id="favcolor" name="favcolor" type="color" value="#008080">
+          <br><br>
+
+          <!-- Range input -->
+          <label for="priceRange">Preferred price range (KES)</label><br>
+          <input id="priceRange" name="priceRange" type="range" min="500" max="10000" step="100" value="2500">
+          <br><br>
+
+          <!-- Select dropdown -->
+          <label for="size">Preferred size</label><br>
+          <select id="size" name="size" required>
+            <option value="" disabled selected>Select size</option>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">Extra Large</option>
+          </select>
+          <br><br>
+
+          <!-- Textarea with minlength and maxlength -->
+          <label for="comments">Additional comments</label><br>
+          <textarea
+            id="comments"
+            name="comments"
+            rows="4"
+            cols="50"
+            placeholder="Write anything important (10-300 characters)"
+            minlength="10"
+            maxlength="300"
+            required></textarea>
+        </fieldset>
+
+        <!-- Hidden / other example fields -->
+        <input type="hidden" name="clientId" value="client-0001">
+
+        <br>
+
+        <!-- Submit and reset -->
+        <button type="submit">Submit form</button>
+        <button type="reset">Reset form</button>
+        <p><small>Fields marked with * are required.</small></p>
+      </form>
+      <!-- End of form -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Created for the HTML5 forms assignment. Replace any media sources with local files if you will submit offline.</p>
+  </footer>
+</body>
+</html>
